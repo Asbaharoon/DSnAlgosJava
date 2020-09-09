@@ -16,14 +16,9 @@ public class BinarySearch
     }
 
     public static void main(String[] args) {
-        int[] whitelist = In.readInts(args[0]);
+        int[] test = {21, 4, 1, 3, 9, 20, 25, 6, 21, 14};
+        System.out.println(rank(9, test));
 
-        Arrays.sort(whitelist);
 
-        while (!StdIn.isEmpty()){
-            int key = StdIn.readInt();
-            if (rank(key, whitelist) == -1)
-                StdOut.println(key);
-        }
     }
 }
