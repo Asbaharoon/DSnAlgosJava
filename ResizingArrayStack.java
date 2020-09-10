@@ -20,7 +20,7 @@ public class ResizingArrayStack<Item> implements Iterable<Item>
 
     public void push(Item item)
     { // Add item to top of stack.
-        if (N == a.lenght) resize(2 * a.length);
+        if (N == a.length) resize(2 * a.length);
         a[N++] = item;
     }
 
@@ -42,6 +42,6 @@ public class ResizingArrayStack<Item> implements Iterable<Item>
         private int i = N;
         public boolean hasNext() {  return i > 0;   }
         public Item next()  {   return a[--i];  }
-        public void remove() {     }
+    public void remove() {  /* Not Implemented */   }
     }
 }
