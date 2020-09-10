@@ -42,6 +42,6 @@ public class ResizingArrayStack<Item> implements Iterable<Item>
         private int i = N;
         public boolean hasNext() {  return i > 0;   }
         public Item next()  {   return a[--i];  }
-    public void remove() {  /* Not Implemented */   }
+        public void remove() {  /* Not Implemented */   }
     }
 }
