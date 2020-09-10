@@ -35,4 +35,13 @@ public class ResizingArrayStack<Item> implements Iterable<Item>
 
     public Iterator<Item> iterator()
     {   return new ReverseArrayIterator(); }
+
+    private class ReverseArrayIterator implements Iterator<Item> 
+    {
+        // Support LIFO iteration
+        private int i = N;
+        public boolean hasNext() {  return i > 0;   }
+        public Item next()  {   return a[--i];  }
+        public void remove() {     }
+    }
 }
