@@ -19,4 +19,7 @@ public class Bag<Item>
         first.item = item;
         first.next = oldfirst;
     }
+
+    
+
 }
