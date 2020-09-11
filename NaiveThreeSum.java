@@ -1,5 +1,3 @@
-import edu.princeton.cs.algs4.StdOut;
-
 public class NaiveThreeSum 
 {
     public static int count(int[] a)
@@ -14,10 +12,3 @@ public class NaiveThreeSum
                         cnt++;
         return cnt;
     }
-
-    public static void main(String[] args)
-    {
-        int[] a = In.readInts(args[0]);
-        StdOut.println(count(a));
-    }
-}
