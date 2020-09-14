@@ -12,3 +12,5 @@ public class NaiveThreeSum
                         cnt++;
         return cnt;
     }
+}
+
