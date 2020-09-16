@@ -17,6 +17,7 @@ public class UFquickfind
 
     public int count()
     {   return count;   }
+    
     public boolean connected(int p, int q)
     {   return find(p) == find(q);  }
 
