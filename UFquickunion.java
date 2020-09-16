@@ -1,13 +1,8 @@
-/* Algorithm 1.5 Union-Find implementation using quick find
-a naive slow approach but good for illustrating the power of
-efficient implentations */
-
-public class UFquickfind 
-{
+public class UFquickunion {
     private int[] id; // access to component id (site indexed)
     private int count; // number of components
 
-    public UFquickfind(int N)
+    public UFquickunion(int N)
     {  // Initialize component id array
         count = N;
         id = new int[N];
@@ -20,23 +15,25 @@ public class UFquickfind
     public boolean connected(int p, int q)
     {   return find(p) == find(q);  }
 
-    // quickfind
     public int find(int p)
-    {   return id[p];    }
+    {
+        // find component name
+        while (p != id[p]) p = id[p];
+        return p;
+    }
 
+    // Quick union
     public void union(int p, int q)
     {
-        // Put p and q into the same component
-        int pID = find(p);
-        int qID = find(q);
+        // Give p and q the same root.
+        int pRoot = find(p);
+        int qRoot = find(q);
+        if (pRoot == qRoot) return;
 
-        // Nothing to do if p and q are already in the same component
-        if (pID == qID) return;
+        id[pRoot] = qRoot;
 
-        // Rename p's component to q's name
-        for (int i = 0; i < id.length; i++)
-            if (id[i] == pID) id[i] = qID;
         count--;
+
     }
 
     public static void main(String[] args)
@@ -54,4 +51,6 @@ public class UFquickfind
         }
         StdOUt.println(uf.count() + " components");
     }
+
+    
 }
