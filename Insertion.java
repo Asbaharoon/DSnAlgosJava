@@ -12,5 +12,8 @@ public class Insertion {
         }
     }
 
-    
+    /* todo
+    less(), exch(), isSorted(), and main()
+
+    */
 }
