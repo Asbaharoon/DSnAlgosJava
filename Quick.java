@@ -16,5 +16,8 @@ public class Quick
         sort(a, j + 1, hi); // sort right part a[j + 1 .. hi]
 
     }
+
+    // Todo
+    // Partition
     
 }
