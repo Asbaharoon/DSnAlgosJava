@@ -72,9 +72,9 @@ public class BinarySearchST<Key extends Comparable<Key>, Value>
         Queue<Key> q = new Queue<Key>();
         for (int i = rank(lo); i < rank(hi); i++)
         q.enqueue(keys[i]);
-        if ((boolean) get(hi))
+        if ((boolean) get(hi)) // todo replace this with contains()
             q.enqueue(keys[rank(hi)]);
-        return (Iterable<Key>) q;
+        return (Iterable<Key>) q; // work to remove cast later
     }
 
     //Todo 
