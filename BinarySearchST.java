@@ -67,6 +67,16 @@ public class BinarySearchST<Key extends Comparable<Key>, Value>
         return keys[i];
     }
 
+    public Iterable<Key> keys(Key lo, Key hi)
+    {
+        Queue<Key> q = new Queue<Key>();
+        for (int i = rank(lo); i < rank(hi); i++)
+        q.enqueue(keys[i]);
+        if ((boolean) get(hi))
+            q.enqueue(keys[rank(hi)]);
+        return q;
+    }
+
     //Todo 
     // public void delete(Key key)
 }
