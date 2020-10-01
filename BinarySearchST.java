@@ -74,7 +74,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value>
         q.enqueue(keys[i]);
         if ((boolean) get(hi))
             q.enqueue(keys[rank(hi)]);
-        return q;
+        return (Iterable<Key>) q;
     }
 
     //Todo 
