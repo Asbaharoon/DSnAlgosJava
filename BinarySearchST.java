@@ -52,6 +52,21 @@ public class BinarySearchST<Key extends Comparable<Key>, Value>
         N++;
     }
 
+    public Key min() 
+    {   return keys[0]; }
+
+    public Key max()
+    {   return keys[N-1];   }
+    
+    public Key select(int k)
+    {   return keys[k];     }
+
+    public Key ceiling(Key key)
+    {
+        int i = rank(key);
+        return keys[i];
+    }
+
     //Todo 
     // public void delete(Key key)
 }
