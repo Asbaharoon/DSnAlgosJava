@@ -3,14 +3,15 @@
 public class LinearProbingHashST<Key, Value>
 {
     private int N; // number of key-value pairs in the table
-    private int M = 16; // size of the linear-probing table
+    private int M; // size of the linear-probing table
     private Key[] keys; // the keys
     private Value[] vals; // the values
 
-    public LinearProbingHashST()
+    public LinearProbingHashST(int cap)
     {
         keys = (Key[]) new Object[M];
         vals = (Value[]) new Object[M];
+        M = cap;
     }
 
     private int hash(Key key)
@@ -18,6 +19,17 @@ public class LinearProbingHashST<Key, Value>
 
     // Todo
     // private void resize() 
+    private void resize(int cap)
+    {
+        LinearProbingHashST<Key, Value> t;
+        t = new LinearProbingHashST<Key, Value>(cap);
+        for (int i = 0; i < M; i++)
+            if (keys[i] != null)
+                t.put(keys[i, vals[i]);
+        keys = t.keys;
+        vals = t.vals;
+        M = t.M;
+    }
 
     public void put(Key key, Value val)
     {
