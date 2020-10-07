@@ -38,5 +38,31 @@ public class LinearProbingHashST<Key, Value>
                 return vals[i];
         return null;
     }
+
+    public void delete(Key key)
+    {
+        if (!contains(key)) return;
+        int i = hash(key);
+        while (!key.equals(keys[i]))
+            i = (i + 1) % M;
+        keys[i] = null;
+        vals[i] = null;
+        i = (i + 1) % M;
+        while(keys[i] != null)
+        {
+            Key keyToRedo = keys[i];
+            Value valToRedo = vals[i];
+            keys[i] = null;
+            vals[i] = null;
+            N--;
+            put(keyToRedo, valToRedo);
+            i = (i + 1) % M;
+        }
+        N--;
+        if (N > 0 && N == M/8) resize(M/2);
+    }
+
+    // Todo 
+    // contains
     
 }
