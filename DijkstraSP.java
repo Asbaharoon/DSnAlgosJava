@@ -36,6 +36,16 @@ public class DijkstraSP {
     }
 
     public double distTo(int v)
+    { return distTo[v]; }
+
     public boolean hasPathTo(int v)
+    { return distTo[v] < Double.POSITIVE_INFINITY;  }
     public Iterable<Edge> pathTo(int v)
+    {
+        if (!hasPathTo(v)) return null;
+        Stack<DirectedEdge> path = new Stack<DirectedEdge>();
+        for (DirectedEdge e = edgeTo[v]; e != null; e = edgeTo[e.form()])
+            path.push(e);
+        return path;
+    }
 }
