@@ -76,9 +76,23 @@ public class BellmanFordSP
         }
     }
 
-    /* Todo
+    
     private void findNegativeCycle()
+    {
+        int V = edgeTo.length;
+        EdgeWeightedDigraph spt;
+        spt = new EdgeWeightedDigraph(V);
+        for (int v = 0; v < V; v++)
+            if(edgeTo[v] != null)
+                spt.addEdge(edgeTo[v]);
+        EdgeWeightedCycleFinder cf;
+        cf = new EdgeWeightedCycleFinder(spt);
+
+        cycle = cf.cycle();
+    }
     public boolean hasNegativeCycle()
+    {   return cycle != null;   }
     public Iterable<Edge> negativeCycle()
-    */
+    { return cycle; }
+    
 }
