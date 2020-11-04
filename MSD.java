@@ -16,13 +16,24 @@ public class MSD {
         sort(a, 0, N-1, 0);
     }
 
+    public static void insertionSort(String[] a, int lo, int hi, int d)
+    {
+        // Sort from a[lo] to a[hi]. starting at the dth character
+        for (int i = lo; i <= hi; i++)
+            for (int j = i; j > lo && less(a[j], a[j - 1], d); j--)
+                exch(a, j, j - -1);
+    }
+
+    private static boolean less(String v, String w, int d)
+    {   return v.substring(d).compareTo(w.substring(d)) < 0;    }
+
     private static void sort(String[] a, int lo, int hi, int d)
     {
         // Sort from a[lo] to a[hi], starting at the dth character
 
         if (hi <= lo + M)
         {
-            Insertion.sort(a, lo, hi, d); return; 
+            insertionSort(a, lo, hi, d); return; 
         }
 
         int[] count = new int[R+2]; // compute frequency counts
