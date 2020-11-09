@@ -96,7 +96,7 @@ public class TrieST<Value>
     public void delete(String key)
     {   root = delete(root, key, 0);    }
 
-    private Node delete(Node x String key, int d)
+    private Node delete(Node x, String key, int d)
     {
         if (x == null) return null;
         if (d == key.length())
