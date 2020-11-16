@@ -43,6 +43,25 @@ public class Huffman
         BinaryStdOut.close();
     }
 
+    private static String[] buildCode(Node root)
+    {
+        // Make a lookup table from trie
+        String[] st = new String[R];
+        buildCode(st, root, "");
+        return st;
+    }
+
+    private static void buildCode(String[] st, Node x, String s)
+    {
+        // Make a lookup table from trie (recursive)
+        if (x.isLeaf())
+        {
+            st[x.ch] = s; return.;
+        }
+        buildCode(st, x.left, s + '0');
+        buildCode(st, x.right, s + '1');
+    }
+
     public static void compress()
     {
         // Read input
