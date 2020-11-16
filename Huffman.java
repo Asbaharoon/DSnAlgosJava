@@ -4,6 +4,28 @@ public class Huffman
 {
     private static int R = 256; // ASCII alphabet
 
+    private static class Node implements Comparable<Node>
+    {
+        // Huffman trie node
+        private char ch; // unused for internal nodes
+        private int freq; // unused for expand
+        private final Node left, right;
+
+        Node(char ch, int freq, Node left, Node right)
+        {
+            this.ch = ch;
+            this.freq = freq;
+            this.left = left;
+            this.right = right;
+        }
+
+        public boolean isLeaf()
+        {   return left == null && right == null;   }
+
+        public int compareTo(Node that)
+        {   return this.freq - that.freq;   }
+    }
+
     public static void compress()
     {
         // Read input
