@@ -26,6 +26,23 @@ public class Huffman
         {   return this.freq - that.freq;   }
     }
 
+    public static void expand()
+    {
+        Node root = readTrie();
+        int N = BinaryStdIn.readInt();
+        for (int i = 0; i < N; i++)
+        {
+            // Expand ith codeword
+            Node x = root;
+            while(!x.isLeaf())
+                if (BinaryStdIn.readBoolean())
+                    x = x.right;
+                else x = x.left;
+            BinaryStdOut.write(x.ch);
+        }
+        BinaryStdOut.close();
+    }
+
     public static void compress()
     {
         // Read input
