@@ -95,6 +95,13 @@ public class Huffman
         writeTrie(x.right);
     }
 
+    private static Node readTrie()
+    {
+        if (BinaryStdIn.readBoolean())
+            return new Node(BinaryStdIn.readChar(), 0, null, null);
+        return new Node('\0', 0, readTrie(), readTrie());
+    }
+
     public static void compress()
     {
         // Read input
