@@ -80,6 +80,21 @@ public class Huffman
         return pq.delMin();
     }
 
+    private static void writeTrie(Node x)
+    {
+        // write bitstring-encoded trie
+        if (x.isLeaf())
+        {
+            BinaryStdOut.write(true);
+            BinaryStdOut.write(x.ch);
+            return;
+        }
+
+        BinaryStdOut.write(false);
+        writeTrie(x.left);
+        writeTrie(x.right);
+    }
+
     public static void compress()
     {
         // Read input
