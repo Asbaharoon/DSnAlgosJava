@@ -31,7 +31,30 @@ public class LZW
 
     public static void expand()
     {
-        
+        String[] st = new String[L];
+
+        int i; // next available codeword value
+
+        for (i = 0;  i < R; i++) // Initialize table for chars
+            st[i] = "" + (char) i; 
+        st[i++] = " "; // (unused) lookahead of EOF
+
+        int  codeword = BinaryStdIn.readInt(W);
+        String val = st[codeword];
+        while(true)
+        {
+            BinaryStdOut.write(val); // write current substring
+            codeword = BinaryStdIn.readInt(W);
+            if (codeword == R) break;
+            String s = st[codeword]; // get the next codeword
+            if (i == codeword) // If lookahead is invalid
+                s = val + val.charAt(0); // make codeword from last one
+            if (i < L)
+                st[i++] = val + s.charAt(0); // add new entry to code table
+            val = s;
+        }
+
+        BinaryStdOut.close();
     }
     
 }
